@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Server - Jeason's Universe</title>
+    <title>Jeason's Universe</title>
+    <!-- 使用本地字体和样式文件 -->
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- 使用本地 Three.js -->
+    <script src="js/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="minecraft.css">
+</head>
+<body>
+    <div id="background"></div>
+    <div class="content">
+        <h1 class="title-text">Minecraft Server</h1>
+        
+        <!-- 导航栏 -->
+        <nav class="cyber-nav">
+            <a href="index.html" class="nav-button">返回首页</a>
+            <a href="#rules" class="nav-button">服务器规则</a>
+            <a href="#join" class="nav-button">如何加入</a>
+        </nav>
+
+        <div class="server-info">
+            <div class="content-card">
+                <h2 class="title-text" style="font-size: 2rem;">服务器信息</h2>
+                <p>服务器地址：your-server.com</p>
+                <p>版本：1.20.1</p>
+                <p>在线玩家：<span id="online-players">0</span>/20</p>
+            </div>
+            
+            <div id="rules" class="content-card">
+                <h2 class="title-text" style="font-size: 2rem;">服务器规则</h2>
+                <ul class="cyber-list">
+                    <li>禁止使用外挂</li>
+                    <li>友善对待他人</li>
+                    <li>禁止破坏他人建筑</li>
+                    <li>遵守社区规范</li>
+                </ul>
+            </div>
+
+            <div id="join" class="content-card">
+                <h2 class="title-text" style="font-size: 2rem;">加入方式</h2>
+                <ol class="cyber-list">
+                    <li>下载对应版本客户端</li>
+                    <li>添加服务器地址</li>
+                    <li>阅读并同意服务器规则</li>
+                    <li>开始游戏！</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script src="background.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

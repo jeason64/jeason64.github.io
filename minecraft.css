@@ -1,0 +1,60 @@
+/* MC服务器页面特定样式 */
+.server-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.info-card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #0ff;
+    border-radius: 10px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.cyber-heading {
+    color: #0ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px #0ff;
+}
+
+.cyber-list {
+    list-style: none;
+    padding: 0;
+}
+
+.cyber-list li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.cyber-list li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #0ff;
+}
+
+/* 在线玩家计数器效果 */
+#online-players {
+    color: #0ff;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { text-shadow: 0 0 5px #0ff; }
+    50% { text-shadow: 0 0 20px #0ff; }
+    100% { text-shadow: 0 0 5px #0ff; }
+}

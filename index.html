@@ -1,62 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeason64的个人博客</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="icon/icon.jpg" type="image/jpg">
+    <title>Jeason's Universe</title>
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/three.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>我的个人博客</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">主页</a></li>
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#posts">文章</a></li>
-                <li><a href="#contact">联系我</a></li>
-                <li><a href="#end">结尾</a></li>
-            </ul>
+    <div id="background"></div>
+    <div class="content">
+        <h1 class="title-text">Welcome to Jeason's Universe</h1>
+        
+        <nav class="cyber-nav">
+            <a href="index.html" class="nav-button">首页</a>
+            <a href="minecraft.html" class="nav-button">MC服务器</a>
+            <a href="#about" class="nav-button">关于我</a>
         </nav>
-    </header>
 
-    <main>
-        <section id="home">
-            <h2 class="slide-in">欢迎来到我的博客</h2>
-            <p class="slide-in">这里是关于我的故事和分享。</p>
-            <p class="slide-in">嗯...好像，还没有什么要分享的</p>
-        </section>
+        <div class="grid-container">
+            <!-- 最新动态卡片 -->
+            <div class="content-card">
+                <h2 class="card-title">最新动态</h2>
+                <div class="card-content">
+                    <p>欢迎来到我的个人空间！这里记录着我的编程之旅和游戏探索。</p>
+                    <p>最近更新：优化了网站的响应式布局，提升了移动端的浏览体验。</p>
+                    <div class="tags">
+                        <span class="tag">更新日志</span>
+                        <span class="tag">网站优化</span>
+                    </div>
+                </div>
+            </div>
 
-        <section id="about">
-            <h2 class="slide-in">关于我</h2>
-            <p class="slide-in">。</p>
-        </section>
+            <!-- 项目展示卡片 -->
+            <div class="content-card">
+                <h2 class="card-title">项目展示</h2>
+                <div class="card-content">
+                    <p>这里展示了我的一些个人项目和作品集。</p>
+                    <ul>
+                        <li><a href="#" class="card-link">还没有</a></li>
+                        <li><a href="#" class="card-link">还在想</a></li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">开源项目</span>
+                        <span class="tag">作品集</span>
+                    </div>
+                </div>
+            </div>
 
-        <section id="posts">
-            <h2 class="slide-in">我的文章</h2>
-            <article>
-                <h3 class="slide-in">文章标题</h3>
-                <p class="slide-in">文章内容简介。</p>
-                <a href="#">阅读全文</a>
-            </article>
-        </section>
+            <!-- 关于我卡片 -->
+            <div id="about" class="content-card">
+                <h2 class="card-title">关于我</h2>
+                <div class="card-content">
+                    <p>我是Jeason，一个热爱编程和游戏的开发者。</p>
+                    <p>GitHub: <a href="https://github.com/jeason64" class="card-link">@jeason64</a></p>
+                    <div class="tags">
+                        <span class="tag">开发者</span>
+                        <span class="tag">游戏爱好者</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <section id="contact">
-            <h2 class="slide-in">联系我</h2>
-            <p class="slide-in">暂无</p>
-        </section>
-
-        <section id="end">
-            <h2 class="slide-in">此网页由AI生成</h2>
-            <p class="slide-in">AI名单：Kimi<br><br><br></p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 我的个人博客</p>
-    </footer>
-
-    <script src="scripts.js"></script>
+    <script src="background.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
