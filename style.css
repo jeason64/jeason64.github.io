@@ -222,3 +222,55 @@ body {
         font-size: 1.75rem;
     }
 }
+/* Minecraft 页面特定样式 */
+.highlight {
+    color: #0ff;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.rule-list, .join-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rule-list li, .join-steps li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.rule-list li::before {
+    content: '⚔️';
+    position: absolute;
+    left: 0;
+}
+
+.join-steps li {
+    counter-increment: step;
+}
+
+.join-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    color: #0ff;
+    font-weight: bold;
+}
+
+/* Minecraft 页面响应式调整 */
+@media (max-width: 768px) {
+    .rule-list li, .join-steps li {
+        margin: 0.75rem 0;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .rule-list li, .join-steps li {
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+    }
+}
