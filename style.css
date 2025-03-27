@@ -29,10 +29,12 @@ body {
 .content {
     width: var(--content-width);
     margin: 0 auto;
-    padding-top: 4rem; /* 减少顶部空白 */
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
     gap: var(--gap);
+    position: relative;
+    z-index: 1;
 }
 
 /* 标题文字样式 */
@@ -46,6 +48,12 @@ body {
         0 0 10px rgba(255, 255, 255, 0.5),
         0 0 20px rgba(0, 255, 255, 0.3);
     transition: text-shadow 0.3s ease;
+}
+
+.title-text:hover {
+    text-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.7),
+        0 0 25px rgba(0, 255, 255, 0.5);
 }
 
 /* 导航按钮样式 */
@@ -77,7 +85,7 @@ body {
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
 }
 
-/* 内容卡片网格布局 */
+/* 网格布局容器 */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(var(--card-min-width), 100%), 1fr));
@@ -85,7 +93,7 @@ body {
     width: 100%;
 }
 
-/* 卡片样式 */
+/* 内容卡片样式 */
 .content-card {
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(0, 255, 255, 0.2);
@@ -162,24 +170,101 @@ body {
 }
 
 /* 列表样式 */
-.card-content ul {
+.card-content ul, .rule-list, .join-steps {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.card-content li {
+.card-content li, .rule-list li, .join-steps li {
     margin: 0.5rem 0;
     padding-left: 1.5rem;
     position: relative;
+    line-height: 1.6;
 }
 
-.card-content li::before {
+.card-content li::before, .rule-list li::before {
     content: '>';
     position: absolute;
     left: 0;
     color: #0ff;
 }
+
+.join-steps li {
+    counter-increment: step;
+}
+
+.join-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    color: #0ff;
+    font-weight: bold;
+}
+
+/* 服务器信息样式 */
+.server-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.info-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.info-value {
+    color: #0ff;
+    font-weight: 600;
+}
+
+.server-address {
+    color: #0ff;
+    font-weight: 600;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+.server-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.server-status.online {
+    background: rgba(0, 255, 0, 0.1);
+    color: #0f0;
+    border: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+.server-status.offline {
+    background: rgba(255, 0, 0, 0.1);
+    color: #f00;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.server-ping {
+    font-weight: 600;
+}
+
+.server-ping.excellent { color: #00ff00; }
+.server-ping.good { color: #88ff00; }
+.server-ping.fair { color: #ffff00; }
+.server-ping.poor { color: #ff0000; }
 
 /* 响应式调整 */
 @media (max-width: 768px) {
@@ -206,6 +291,14 @@ body {
         padding: 0.6em 1.5em;
         font-size: 0.9rem;
     }
+
+    .server-info-grid {
+        gap: 0.75rem;
+    }
+    
+    .info-item.full-width {
+        margin-bottom: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -221,56 +314,12 @@ body {
     .title-text {
         font-size: 1.75rem;
     }
-}
-/* Minecraft 页面特定样式 */
-.highlight {
-    color: #0ff;
-    font-weight: 600;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-}
 
-.rule-list, .join-steps {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.rule-list li, .join-steps li {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    line-height: 1.6;
-}
-
-.rule-list li::before {
-    content: '⚔️';
-    position: absolute;
-    left: 0;
-}
-
-.join-steps li {
-    counter-increment: step;
-}
-
-.join-steps li::before {
-    content: counter(step);
-    position: absolute;
-    left: 0;
-    color: #0ff;
-    font-weight: bold;
-}
-
-/* Minecraft 页面响应式调整 */
-@media (max-width: 768px) {
-    .rule-list li, .join-steps li {
-        margin: 0.75rem 0;
-        font-size: 0.95rem;
+    .server-info-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-}
-
-@media (max-width: 480px) {
-    .rule-list li, .join-steps li {
-        margin: 0.5rem 0;
-        font-size: 0.9rem;
+    
+    .server-address {
+        font-size: 1rem;
     }
 }

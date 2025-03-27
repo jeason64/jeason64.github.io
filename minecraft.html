@@ -24,12 +24,32 @@
             <div class="content-card">
                 <h2 class="card-title">服务器信息</h2>
                 <div class="card-content">
-                    <p>服务器地址：<span class="highlight">your-server.com</span></p>
-                    <p>游戏版本：<span class="highlight">1.20.1</span></p>
-                    <p>在线人数：<span id="online-players" class="highlight">0/20</span></p>
+                    <div class="server-info-grid">
+                        <div class="info-item full-width">
+                            <span class="info-label">服务器地址:</span>
+                            <span class="info-value server-address"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">状态:</span>
+                            <span id="server-status" class="server-status offline">离线</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">版本:</span>
+                            <span id="server-version" class="info-value">--</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">在线人数:</span>
+                            <span id="online-players" class="info-value">0/0</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">API检测:</span>
+                            <span id="server-ping" class="server-ping">--</span>
+                        </div>
+                    </div>
                     <div class="tags">
                         <span class="tag">Java版</span>
-                        <span class="tag">正版验证</span>
+                        <span class="tag">实时状态</span>
+                        <span class="tag">测试使用</span>
                     </div>
                 </div>
             </div>
@@ -72,5 +92,11 @@
 
     <script src="background.js"></script>
     <script src="main.js"></script>
+    <script src="mcstatus.js"></script>
+    <script>
+        const serverAddress = '2b2t.org'; // 在这里设置您的服务器地址
+        const serverStatus = new MCServerStatus(serverAddress);
+        serverStatus.startAutoUpdate(30000); // 每30秒更新一次
+    </script>
 </body>
 </html>
